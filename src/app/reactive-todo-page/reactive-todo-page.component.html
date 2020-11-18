@@ -1,0 +1,16 @@
+<h2>Todo List(Filtered)</h2>
+<p>filter condition: {{ filterCondition$ | async }}</p>
+<div>
+  <button (click)="filterCondition$.next('all')">all</button>
+  <button (click)="filterCondition$.next('todo')">todo</button>
+  <button (click)="filterCondition$.next('completed')">completed</button>
+</div>
+<button (click)="onAdd$.next()">add</button>
+<ul>
+  <ng-container *ngFor="let item of filteredItems$ | async">
+    <li>
+      <span>title: {{ item.title }}, completed: {{ item.completed }}</span>
+      <button (click)="onRmove$.next({ id: item.id })">remove</button>
+    </li>
+  </ng-container>
+</ul>
