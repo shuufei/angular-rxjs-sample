@@ -1,0 +1,7 @@
+<select [formControl]="stepSelect">
+  <option [value]="'step0'" selected>step0</option>
+  <option [value]="'final'">final</option>
+</select>
+
+<app-step0 *ngIf="stepSelect.value === 'step0'" [title]="'step0'"></app-step0>
+<app-final *ngIf="stepSelect.value === 'final'" [title]="'final'"></app-final>

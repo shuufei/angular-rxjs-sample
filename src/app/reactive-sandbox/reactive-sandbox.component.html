@@ -1,0 +1,12 @@
+<h2>Async Pipe</h2>
+<p>clicked: {{ clickEvent$ | async }}</p>
+<button (click)="onClicked.next()">click</button>
+
+<h2>Multicast</h2>
+<button (click)="publishUnniMultiState()">publish state</button>
+
+<h2>Hot / Cold</h2>
+<button (click)="publishHotColdState()">publish state</button>
+
+<h2>Late Subscriber</h2>
+<app-late-subscriber [state]="{ id: 100 }"></app-late-subscriber>

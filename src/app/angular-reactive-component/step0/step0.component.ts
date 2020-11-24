@@ -1,16 +1,17 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { v4 as uuidv4 } from 'uuid';
 
 type FilterCondition = 'completed' | 'all' | 'todo';
 type TodoItem = { id: string; title: string; completed: boolean };
 
 @Component({
-  selector: 'app-todo-page',
-  templateUrl: './todo-page.component.html',
-  styleUrls: ['./todo-page.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'app-step0',
+  templateUrl: './step0.component.html',
+  styleUrls: ['./step0.component.scss'],
 })
-export class TodoPageComponent implements OnInit {
+export class Step0Component implements OnInit {
+  @Input() title = '';
+
   // Todoリスト
   items: TodoItem[] = [
     { id: uuidv4(), title: 'todo0', completed: false },
@@ -68,10 +69,5 @@ export class TodoPageComponent implements OnInit {
   remove(id: string): void {
     this.items = this.items.filter((v) => v.id !== id);
     this.executeFilter(); // フィルタ実行
-  }
-
-  get count(): number {
-    console.log('--- getter count');
-    return 0;
   }
 }
