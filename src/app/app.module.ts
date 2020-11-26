@@ -8,6 +8,8 @@ import { ReactiveTodoPageComponent } from './reactive-todo-page/reactive-todo-pa
 import { ReactiveSandboxComponent } from './reactive-sandbox/reactive-sandbox.component';
 import { LateSubscriberComponent } from './components/late-subscriber/late-subscriber.component';
 import { Step0Component } from './angular-reactive-component/step0/step0.component';
+import { Step1Component } from './angular-reactive-component/step1/step1.component';
+import { Step2Component } from './angular-reactive-component/step2/step2.component';
 import { FinalComponent } from './angular-reactive-component/final/final.component';
 import { AngularReactiveComponentComponent } from './angular-reactive-component/angular-reactive-component.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -21,6 +23,8 @@ import { RxangularComponent } from './angular-reactive-component/rxangular/rxang
     ReactiveSandboxComponent,
     LateSubscriberComponent,
     Step0Component,
+    Step1Component,
+    Step2Component,
     FinalComponent,
     AngularReactiveComponentComponent,
     RxangularComponent,

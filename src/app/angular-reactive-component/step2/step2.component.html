@@ -4,7 +4,9 @@
 <div>
   <button (click)="onChangedFilterCondition$.next('all')">all</button>
   <button (click)="onChangedFilterCondition$.next('todo')">todo</button>
-  <button (click)="onChangedFilterCondition$.next('completed')"></button>
+  <button (click)="onChangedFilterCondition$.next('completed')">
+    completed
+  </button>
 </div>
 <button (click)="onAdd$.next()">add</button>
 <ul>
