@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { v4 as uuidv4 } from 'uuid';
 
 type FilterCondition = 'completed' | 'all' | 'todo';
@@ -9,7 +9,7 @@ type TodoItem = { id: string; title: string; completed: boolean };
   templateUrl: './step0.component.html',
   styleUrls: ['./step0.component.scss'],
 })
-export class Step0Component implements OnInit {
+export class Step0Component implements OnDestroy {
   @Input() title = '';
 
   // Todoリスト
@@ -32,7 +32,7 @@ export class Step0Component implements OnInit {
     this.executeFilter(); // フィルタ実行
   }
 
-  ngOnInit(): void {}
+  ngOnDestroy(): void {}
 
   executeFilter(): void {
     switch (this.filterCondition) {

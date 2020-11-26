@@ -24,7 +24,7 @@ type State = {
   templateUrl: './final.component.html',
   styleUrls: ['./final.component.scss'],
 })
-export class FinalComponent implements OnInit, OnDestroy {
+export class FinalComponent implements OnDestroy {
   @Input()
   set title(title: string) {
     this.onChangedInputTitle$.next(title);
@@ -83,7 +83,6 @@ export class FinalComponent implements OnInit, OnDestroy {
   readonly onRemove$ = new Subject<{ id: TodoItem['id'] }>();
   readonly onChangedFilterCondition$ = new Subject<FilterCondition>();
   readonly onChangedInputTitle$ = new Subject<string>();
-  private readonly onInit$ = new Subject<void>();
   private readonly onDestroy$ = new Subject<void>();
 
   // Event Handlers
@@ -138,10 +137,6 @@ export class FinalComponent implements OnInit, OnDestroy {
     )
       .pipe(takeUntil(this.onDestroy$))
       .subscribe();
-  }
-
-  ngOnInit(): void {
-    this.onInit$.next();
   }
 
   ngOnDestroy(): void {
