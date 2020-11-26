@@ -1,7 +1,12 @@
 <select [formControl]="stepSelect">
   <option [value]="'step0'" selected>step0</option>
   <option [value]="'final'">final</option>
+  <option [value]="'rx-angular'">rx-angular</option>
 </select>
 
 <app-step0 *ngIf="stepSelect.value === 'step0'" [title]="'step0'"></app-step0>
 <app-final *ngIf="stepSelect.value === 'final'" [title]="'final'"></app-final>
+<app-rxangular
+  *ngIf="stepSelect.value === 'rx-angular'"
+  [title]="'rx-angular'"
+></app-rxangular>

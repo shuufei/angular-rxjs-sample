@@ -20,6 +20,8 @@
     "@angular/platform-browser": "~10.0.6",
     "@angular/platform-browser-dynamic": "~10.0.6",
     "@angular/router": "~10.0.6",
+    "@rx-angular/state": "^1.4.1",
+    "@rx-angular/template": "^1.0.0-beta.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "uuid": "^8.3.1",

@@ -11,6 +11,7 @@ import { Step0Component } from './angular-reactive-component/step0/step0.compone
 import { FinalComponent } from './angular-reactive-component/final/final.component';
 import { AngularReactiveComponentComponent } from './angular-reactive-component/angular-reactive-component.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RxangularComponent } from './angular-reactive-component/rxangular/rxangular.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     Step0Component,
     FinalComponent,
     AngularReactiveComponentComponent,
+    RxangularComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
