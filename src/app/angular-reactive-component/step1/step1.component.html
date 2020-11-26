@@ -1,0 +1,17 @@
+<h1>{{ title }}</h1>
+<h2>Todo List(Filtered)</h2>
+<p>filter condition: {{ filterCondition }}</p>
+<div>
+  <button (click)="onChangedFilterCondition$.next('all')">all</button>
+  <button (click)="onChangedFilterCondition$.next('todo')">todo</button>
+  <button (click)="onChangedFilterCondition$.next('completed')"></button>
+</div>
+<button (click)="onAdd$.next()">add</button>
+<ul>
+  <ng-container *ngFor="let item of filteredItems">
+    <li>
+      <span>title: {{ item.title }}, completed: {{ item.completed }}</span>
+      <button (click)="onRemove$.next({ id: item.id })">remove</button>
+    </li>
+  </ng-container>
+</ul>

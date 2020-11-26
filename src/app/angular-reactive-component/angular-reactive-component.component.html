@@ -5,6 +5,7 @@
 </select>
 
 <app-step0 *ngIf="stepSelect.value === 'step0'" [title]="'step0'"></app-step0>
+<app-step1 *ngIf="stepSelect.value === 'step1'" [title]="'step1'"></app-step1>
 <app-final *ngIf="stepSelect.value === 'final'" [title]="'final'"></app-final>
 <app-rxangular
   *ngIf="stepSelect.value === 'rx-angular'"
