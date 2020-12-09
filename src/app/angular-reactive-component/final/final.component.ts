@@ -128,12 +128,26 @@ export class FinalComponent implements OnDestroy {
     })
   );
 
+  private readonly postItemsHandler$ = this.items$.pipe(
+    tap((items) => {
+      this.postItems(items);
+    })
+  );
+
+  private readonly outputLogHandler$ = merge(
+    this.onAdd$,
+    this.onRemove$,
+    this.onChangedFilterCondition$
+  ).pipe(tap((event) => console.log(event)));
+
   constructor() {
     merge(
       this.changeTitleHandler$,
       this.addItemHandler$,
       this.removeItemHandler$,
-      this.changeFilterConditionHandler$
+      this.changeFilterConditionHandler$,
+      this.postItemsHandler$,
+      this.outputLogHandler$
     )
       .pipe(takeUntil(this.onDestroy$))
       .subscribe();
@@ -141,5 +155,10 @@ export class FinalComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.onDestroy$.next();
+  }
+
+  postItems(items: State['items']): void {
+    console.log('-- post items', items);
+    // 送信処理
   }
 }

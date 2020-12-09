@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { insert, remove, RxState, stateful } from '@rx-angular/state';
-import { combineLatest, Subject } from 'rxjs';
+import { combineLatest, Subject, merge } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -64,6 +64,13 @@ export class RxangularComponent {
       remove(currentState.items, { id }, 'id')
     );
     this.state.connect('filterCondition', this.onChangedFilterCondition$);
+    this.state.hold(this.items$, (items) => {
+      this.postItems(items);
+    });
+    this.state.hold(
+      merge(this.onAdd$, this.onRemove$, this.onChangedFilterCondition$),
+      console.log
+    );
     this.state.set({
       items: [
         { id: uuidv4(), title: 'todo0', completed: false },
@@ -76,5 +83,10 @@ export class RxangularComponent {
       filterCondition: 'all',
       title: '',
     });
+  }
+
+  postItems(items: State['items']): void {
+    console.log('-- post items', items);
+    // 送信処理
   }
 }

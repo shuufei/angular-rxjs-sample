@@ -129,12 +129,13 @@ export class ReactiveSandboxComponent implements OnInit, OnDestroy {
   }
 
   private initSubscriptionManage(): void {
-    interval(3000)
+    interval(1000)
       .pipe(
         tap((v) => console.log(`interval: ${v}`)),
         takeUntil(this.onDestroy$)
       )
       .subscribe();
+    // this.subscription.add(s);
     // this.subscription.add(intervalSubscription);
   }
 }
